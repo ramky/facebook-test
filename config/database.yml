@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: facebook-test_development
+test:
+  <<: *default
+  database: facebook-test_test
+
+production:
+  <<: *default
+  database: facebook-test_production
+  username: facebook-test
+  password: <%= ENV['FACEBOOK-TEST_DATABASE_PASSWORD'] %>
